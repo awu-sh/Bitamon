@@ -1,0 +1,658 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awu-sh</title>
+  <meta name="description" content="awu-sh" />
+  <link
+    rel="stylesheet"
+    href="//at.alicdn.com/t/font_1905207_z25iism2l6d.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
+  />
+  <style>
+    .mask {
+      width: 0;
+      height: 0;
+    }
+    .brush {
+      -webkit-clip-path: url(#brush-path);
+      clip-path: url(#brush-path);
+    }
+    .bridgeCave {
+      -webkit-clip-path: url(#bridgeCave);
+      clip-path: url(#bridgeCave);
+    }
+    .vector {
+      -webkit-clip-path: url(#vector);
+      clip-path: url(#vector);
+    }
+    .Tearing {
+      -webkit-clip-path: url(#Tearing);
+      clip-path: url(#Tearing);
+    }
+    @font-face {
+      font-family: "Lato-Light";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Lato-Light.ttf");
+    }
+    @font-face {
+      font-family: "Lato";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Lato-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Merriweather-Bold";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Merriweather-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Oswald-Bold";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Oswald-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Cabin-Bold";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Cabin-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Pacifico";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Pacifico-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Inter-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Inter Black";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Inter-Black-slnt=0.ttf");
+    }
+    @font-face {
+      font-family: "Inter Medium";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Inter-Medium-slnt=0.ttf");
+    }
+    @font-face {
+      font-family: "Inter Semi Bold";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Inter-SemiBold-slnt=0.ttf");
+    }
+    @font-face {
+      font-family: "Lobster";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Lobster-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Merriweather Bold";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Merriweather-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Marck Script";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/MarckScript-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Alex Brush";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/AlexBrush-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Quicksand";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Quicksand-VariableFont_wght.ttf");
+    }
+    @font-face {
+      font-family: "Maven Pro";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/MavenPro-VariableFont_wght.ttf");
+    }
+    @font-face {
+      font-family: "Dancing Script";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/DancingScript-SemiBold.ttf");
+    }
+    @font-face {
+      font-family: "Istok Web";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/IstokWeb-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Paytone One";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/PaytoneOne-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Pacifico";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Pacifico-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Kalam";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Kalam-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Lily Script One";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/LilyScriptOne-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Permanent Marker";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/PermanentMarker-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Bulldozer";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Bulldozer.ttf");
+    }
+    @font-face {
+      font-family: "Knewave";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Knewave-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Abril Fatface";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/AbrilFatface-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Anton";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Anton-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Oswald";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Oswald-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Exo";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Exo-Bold.ttf");
+    }
+    @font-face {
+      font-family: "Monoton";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Monoton-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Fugaz One";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/FugazOne-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Jockey One";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/JockeyOne-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Concert One";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/ConcertOne-Regular.ttf");
+    }
+
+    @font-face {
+      font-family: "Vidaloka";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Vidaloka-Regular.ttf");
+    }
+    @font-face {
+      font-family: "Itim";
+      src: url("https://desty-upload-indonesia.oss-ap-southeast-5.aliyuncs.com/fonts/Itim-Regular.ttf");
+    }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    a {
+      text-decoration: none;
+    }
+    .fullScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .phoneModel {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    .phoneModel #whiteboard {
+      max-width: 960px;
+      margin: 0 auto;
+      min-height: 200px;
+      padding-top: 60px;
+      padding-bottom: 80px;
+    }
+    .phoneModel #whiteboard .element {
+      min-height: 20px;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -khtml-user-select: none;
+      user-select: none;
+    }
+    .phoneModel .HtmlCanvas section i.moveIcon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 30px;
+      font-weight: bold;
+      color: #33549d;
+    }
+    .phoneModel .audioContent,
+    .phoneModel .videoContent {
+      text-align: center;
+    }
+    .phoneModel .video,
+    .phoneModel .audio {
+      padding: 15px 0px;
+    }
+
+    .phoneModel .board-text,
+    .phoneModel .links,
+    .phoneModel .icons,
+    .phoneModel .image,
+    .phoneModel .product,
+    .phoneModel .video,
+    .phoneModel .audio {
+      font-family: "lato";
+    }
+    .phoneModel .links {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .phoneModel .links a button {
+      width: 90%;
+      height: 50px;
+      background: unset;
+      border: 1px solid black;
+      font-size: 18px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .phoneModel .links .buttonBox {
+      position: relative;
+      overflow: unset !important;
+      outline: none;
+    }
+    .phoneModel .links .buttonBox .linkBadge {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: -20px;
+      right: -20px;
+    }
+    .phoneModel .icons {
+      text-align: center;
+    }
+    .phoneModel .icons .svg-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 10px;
+      overflow: hidden;
+    }
+    .phoneModel .icons a {
+      text-decoration: none;
+    }
+    .phoneModel .icons a i {
+      line-height: 79px;
+      font-size: 48px;
+      margin: 0 9.5px;
+    }
+    .phoneModel .board-text {
+      text-align: left;
+      word-break: break-all;
+      overflow: hidden;
+      list-style-position: inside;
+      color: inherit;
+      width: 90%;
+      margin: 15px auto;
+    }
+    .phoneModel .board-text ul,
+    .phoneModel .board-text ol {
+      padding-inline-start: 0px;
+    }
+    .board-text p {
+      word-break: break-all;
+      overflow: hidden;
+    }
+    .board-text li {
+      word-break: break-all;
+      overflow: hidden;
+    }
+    .phoneModel .board-text p,
+    .phoneModel .board-text h1,
+    .phoneModel .board-text h2,
+    .phoneModel .board-text h3,
+    .phoneModel .board-text h4,
+    .phoneModel .board-text h5,
+    .phoneModel .board-text h6 {
+      word-wrap: break-word;
+      word-break: normal;
+      margin: 0;
+      font-family: inherit;
+    }
+    .phoneModel .board-text .ql-align-justify {
+      text-align: justify;
+    }
+    .phoneModel .board-text .ql-align-center {
+      text-align: center;
+    }
+    .phoneModel .board-text .ql-align-right {
+      text-align: right;
+    }
+    .phoneModel .board-text h1 {
+      font-size: 2em;
+    }
+    .phoneModel .board-text-casual h1,
+    .phoneModel .board-text-casual h2,
+    .phoneModel .board-text-casual h3 {
+      font-family: "Merriweather-Bold";
+    }
+    .phoneModel .board-text-casual p {
+      font-family: "Lato-Light";
+    }
+    .phoneModel .board-text-casual h1 {
+      font-size: 32px;
+    }
+    .phoneModel .board-text-casual h2 {
+      font-size: 26px;
+    }
+    .phoneModel .board-text-casual h3 {
+      font-size: 20px;
+    }
+    .phoneModel .board-text-sport h1,
+    .phoneModel .board-text-sport h2,
+    .phoneModel .board-text-sport h3 {
+      font-family: "Oswald-Bold";
+    }
+    .phoneModel .board-text-sport p {
+      font-family: "Lato-Regular";
+    }
+    .phoneModel .board-text-basic h1,
+    .phoneModel .board-text-basic h2,
+    .phoneModel .board-text-basic h3 {
+      font-family: "Cabin-Bold";
+      color: inherit;
+    }
+    .phoneModel .board-text-basic p {
+      font-family: "Lato";
+    }
+    .phoneModel .board-text-handmaker h1,
+    .phoneModel .board-text-handmaker h2,
+    .phoneModel .board-text-handmaker h3 {
+      font-family: "Pacifico";
+    }
+    .phoneModel .board-text-handmaker p {
+      font-family: "Lato";
+    }
+    .phoneModel .board-text-casual li {
+      font-size: 14px;
+      line-break: anywhere;
+      list-style-position: inside;
+    }
+    .phoneModel .product {
+      width: 93%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 5%;
+    }
+    .phoneModel .product .productItem {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      background: #ffffff;
+      box-sizing: border-box;
+      width: 149px;
+      padding: 14px;
+      border-radius: 5px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      margin-right: 3%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+    .phoneModel .product .productItem:nth-child(4n) {
+      /* margin-right: 0; */
+    }
+
+    .phoneModel .product .productItem .badge {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      right: 0;
+      top: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phoneModel .product .productItem .badge img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .phoneModel .product .productItem img {
+      width: 100%;
+      /* height: 121px; */
+      display: block;
+    }
+    .phoneModel .product .productItem .describe {
+      color: #000000;
+      font-size: 13px;
+      margin: 5px 0;
+      line-height: 20px;
+      height: 40px;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .phoneModel .product .productItem .price {
+      text-align: left;
+      color: #000000;
+      margin: 0;
+      height: 25px;
+    }
+    .phoneModel .image {
+      text-align: center;
+      font-size: 0;
+      display: inline-block;
+      width: 100%;
+      font-size: 0;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+    .phoneModel .image .divImg {
+      display: inline-block;
+      background-position: center;
+      background-size: cover;
+      margin: 0 auto;
+      width: 50%;
+      height: 0;
+      padding-bottom: 50%;
+      font-size: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+    }
+    .phoneModel .image .img {
+      height: 100%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .footer {
+      cursor: pointer;
+      bottom: 0;
+      position: fixed;
+      background: #1b2666;
+      width: 100%;
+      color: #ffffff;
+      height: 40px;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: center;
+      font-family: Poppins,Inter;
+    }
+    .footer img {
+      vertical-align: middle;
+    }
+  </style>
+  <style>
+    @media screen and (max-width: 750px) {
+      .phoneModel .product {
+        margin-left: 5%;
+        width: 90%;
+      }
+      .phoneModel .product .productItem {
+        border-radius: 4%;
+        width: 46%;
+        margin: 2% 2%;
+        margin-left: 0;
+        margin-right: 4%;
+        height: auto;
+        padding: 0;
+      }
+      .phoneModel .product .productItem:nth-child(2n) {
+        margin-right: 0;
+      }
+      .phoneModel .product .productItem img {
+        width: 100%;
+        height: auto;
+      }
+      .phoneModel .product .productItem .describe {
+        margin: 5% 0 6% 0px;
+        padding: 0 6%;
+      }
+      .phoneModel .product .productItem .price {
+        margin: 5% 0 6% 0px;
+        padding: 0 6%;
+      }
+      .phoneModel .product .white {
+        width: 46%;
+      }
+    }
+  </style>
+  <style>
+    #whiteboard .smooth-dnd-container{display:block !important;} #whiteboard .smooth-dnd-container .smooth-dnd-draggable-wrapper{width:100% !important;} .pc{width:100% !important;}   .board-text h1{font-family:Bauhaus 93  !important;
+font-size:36px  !important;
+line-height:42px  !important;
+Paragraph Spacing:6px  !important;
+}.board-text h2{font-family:Bauhaus 93  !important;
+font-size:24px  !important;
+line-height:42px  !important;
+Paragraph Spacing:6px  !important;
+}.board-text h3{font-family:Inter Semi Bold  !important;
+font-size:20px  !important;
+line-height:24px  !important;
+Paragraph Spacing:8px  !important;
+}.board-text p{font-family:Inter regular  !important;
+font-size:14.000000000000002px  !important;
+line-height:20px  !important;
+Paragraph Spacing:4px  !important;
+}    .links label{font-family:Inter medium  !important;
+font-size:14.000000000000002px  !important;
+line-height:16px  !important;
+letter-spacing:0.01em  !important;
+}
+  </style>
+  
+</head>
+<body>
+  <div class="fullScreen"></div>
+  <div class="container">
+    <div class="phoneModel"><div data-v-f6228d52="" class="point"><div data-v-f6228d52="" class="circle"></div><div data-v-f6228d52="" class="circle"></div><div data-v-f6228d52="" class="circle"></div></div><div data-v-1769879a="" data-v-f6228d52="" id="whiteboard" background="{&quot;type&quot;:&quot;color&quot;,&quot;setting&quot;:{&quot;color&quot;:&quot;#1C1C1C&quot;}}" footerstyle="{&quot;bgColor&quot;:&quot;#FFFFFF&quot;,&quot;fontColor&quot;:&quot;@secondary-color&quot;,&quot;font-family&quot;:&quot;Roboto&quot;,&quot;svgStyle&quot;:&quot;orange&quot;}"><!----><!----><div data-v-1769879a="" class="smooth-dnd-container vertical"><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="v-step-1 phone element draggable-item active"><div data-v-05a59758="" data-v-1769879a="" class="image column-drag-handle" style="padding: 15px 0px;"><!----><div data-v-05a59758="" style="width: 90%; margin: 0px auto;"><div data-v-05a59758="" class="divImg" style="background-image: url(&quot;https://static.desty.page/desty-page/1608303111781432416d9f23946c8876eaa7f1cc6965e.jpeg&quot;);"></div></div><!----><!----><!----><!----></div></div></div><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="phone element draggable-item"><div data-v-1769879a="" class="column-drag-handle"><div class="board-text board-text-basic" style="color: rgb(255, 255, 255) !important;"><h1 class="ql-align-center">Baby Song</h1></div></div></div></div><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="phone element draggable-item"><div data-v-579004f6="" data-v-1769879a="" class="links column-drag-handle"><a data-v-579004f6="" href="" target="_blank"><button data-v-579004f6="" id="" data-animatetype="" class="" style="color: rgb(255, 255, 255); background: none; border: 2px solid rgb(125, 147, 255); box-sizing: border-box; border-radius: 10px;"><p data-v-579004f6="" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0px; margin: 0px;"><label data-v-579004f6="" style="cursor: pointer;">Use a kid's voice</label></p><!----></button></a><a data-v-579004f6="" href="" target="_blank"><button data-v-579004f6="" id="" data-animatetype="" class="" style="color: rgb(255, 255, 255); background: none; border: 2px solid rgb(125, 147, 255); box-sizing: border-box; border-radius: 10px;"><p data-v-579004f6="" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0px; margin: 0px;"><label data-v-579004f6="" style="cursor: pointer;">The only music in the world</label></p><!----></button></a><a data-v-579004f6="" href="" target="_blank"><button data-v-579004f6="" id="" data-animatetype="" class="" style="color: rgb(255, 255, 255); background: none; border: 2px solid rgb(125, 147, 255); box-sizing: border-box; border-radius: 10px;"><p data-v-579004f6="" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0px; margin: 0px;"><label data-v-579004f6="" style="cursor: pointer;">Make into music box</label></p><!----></button></a><a data-v-579004f6="" href="" target="_blank"><button data-v-579004f6="" id="" data-animatetype="" class="" style="color: rgb(255, 255, 255); background: none; border: 2px solid rgb(125, 147, 255); box-sizing: border-box; border-radius: 10px;"><p data-v-579004f6="" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0px; margin: 0px;"><label data-v-579004f6="" style="cursor: pointer;">As a lifetime gift that won't fade</label></p><!----></button></a></div></div></div><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="phone element draggable-item"><div data-v-1769879a="" class="column-drag-handle"><div class="board-text board-text-basic" style="color: rgb(255, 255, 255) !important;"><h2 class="ql-align-center">PRODUCTS</h2></div></div></div></div><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="phone element draggable-item"><div data-v-002ebac5="" data-v-1769879a="" class="column-drag-handle"><div data-v-002ebac5="" class="product"><a data-v-002ebac5="" href="http://www.desty.page-45" target="_blank" class="productItem phoneProduct"><!----><img data-v-002ebac5="" src="https://static.desty.page/desty-app/img/design/45.jpg" alt="" srcset=""><p data-v-002ebac5="" class="describe">Xylophone</p><p data-v-002ebac5="" class="price"> Rp&nbsp;89.000 </p></a><a data-v-002ebac5="" href="http://www.desty.page-46" target="_blank" class="productItem phoneProduct"><!----><img data-v-002ebac5="" src="https://static.desty.page/desty-app/img/design/46.jpg" alt="" srcset=""><p data-v-002ebac5="" class="describe">Silicone microphone (blue or pink)</p><p data-v-002ebac5="" class="price"> Rp&nbsp;89.000 </p></a><a data-v-002ebac5="" href="http://www.desty.page-47" target="_blank" class="productItem phoneProduct"><!----><img data-v-002ebac5="" src="https://static.desty.page/desty-app/img/design/47.jpg" alt="" srcset=""><p data-v-002ebac5="" class="describe">Recording equipment</p><p data-v-002ebac5="" class="price"> Rp&nbsp;89.000 </p></a><a data-v-002ebac5="" href="http://www.desty.page-48" target="_blank" class="productItem phoneProduct"><!----><img data-v-002ebac5="" src="https://static.desty.page/desty-app/img/design/48.jpg" alt="" srcset=""><p data-v-002ebac5="" class="describe">Gift box</p><p data-v-002ebac5="" class="price"> Rp&nbsp;89.000 </p></a></div></div></div></div><div data-v-1769879a="" class="smooth-dnd-draggable-wrapper"><div data-v-1769879a="" class="phone element draggable-item"><div data-v-05b0d744="" data-v-1769879a="" class="icons column-drag-handle"><a data-v-05b0d744="" href="" target="_blank"><i data-v-05b0d744="" class="iconfont desty-icon-facebook-solid" style="color: rgb(125, 147, 255);"></i></a><a data-v-05b0d744="" href="" target="_blank"><i data-v-05b0d744="" class="iconfont desty-icon-whatsapp-solid" style="color: rgb(125, 147, 255);"></i></a><a data-v-05b0d744="" href="" target="_blank"><i data-v-05b0d744="" class="iconfont desty-icon-line-solid" style="color: rgb(125, 147, 255);"></i></a><a data-v-05b0d744="" href="" target="_blank"><i data-v-05b0d744="" class="iconfont desty-icon-twitter-solid" style="color: rgb(125, 147, 255);"></i></a></div></div></div></div></div></div>
+  </div>
+
+  <div class="footer">
+    Get your own awesome free page at
+    <img
+      height="17px"
+      src="https://static.desty.page/desty-app/img/homepage/destylogo-header.svg"
+      class="logo"
+    />
+  </div>
+</body>
+<script>
+  let footer = document.getElementsByClassName("footer");
+  footer = [...footer];
+  footer.forEach((item) => {
+    item.onclick = function () {
+      window.open("http://www.desty.app");
+    };
+  });
+  const whiteboard = document.getElementById("whiteboard");
+  const fullScreen = document.querySelector(".fullScreen");
+  const background = JSON.parse(whiteboard.getAttribute("background"));
+  function setColor(color) {
+    fullScreen.style.backgroundColor = color;
+  }
+  switch (background.type) {
+    case "freeimage":
+      if (background.setting.imgSrc) {
+        fullScreen.style.backgroundImage = `url(${background.setting.imgSrc})`;
+      } else {
+        setColor(background.setting.value);
+      }
+      break;
+    case "image":
+      if (background.setting.imgSrc) {
+        fullScreen.style.backgroundImage = `url(${background.setting.imgSrc})`;
+      } else {
+        setColor(background.setting.value);
+      }
+      break;
+    case "color":
+      setColor(background.setting.color);
+      break;
+    default:
+      break;
+  }
+  const footerstyle = JSON.parse(whiteboard.getAttribute("footerstyle"));
+  const bgColor = footerstyle.bgColor;
+  const fontColor = footerstyle.fontColor;
+  const fontFamily = footerstyle["font-family"];
+  const svgStyle = footerstyle.svgStyle;
+  /* let footerArr = document.getElementsByClassName("footer");
+  footerArr = [...footerArr];
+  const footImg = document.getElementById("footImg"); */
+  /* footerArr.forEach((item) => {
+    item.style.backgroundColor = bgColor;
+    item.style.fontFamily = fontFamily;
+    item.style.color = fontColor;
+  });
+  if (svgStyle === "orange") {
+    footImg.src = "https://static.desty.page/desty-page/Destylogo1.svg";
+  } else {
+    footImg.src = "https://static.desty.page/desty-page/Destylogo2.svg";
+  }
+  footImg.src = "https://static.desty.page/desty-page/Destylogo1.svg"; */
+</script>
+<script>
+  let timeId = setInterval(() => {
+    const priority = document.querySelector("#priority");
+    if (!priority) {
+      clearInterval(timeId);
+      return;
+    }
+    const data = priority.getAttribute("data-animateType");
+    if (!priority) {
+      clearInterval(timeId);
+      return;
+    }
+    if (priority.className) {
+      priority.className = "";
+      return;
+    }
+    priority.className = `animate__animated  animate__${data} buttonBox`;
+  }, 1000);
+
+  const videoAll = [...document.querySelectorAll(".video")];
+  videoAll.forEach((item) => {
+    let height = (item.clientWidth * 1080) / 1920;
+    item.style.height = height + "px";
+  });
+  const audio = [...document.querySelectorAll(".audio")];
+  audio.forEach((item) => {
+    let height = (item.clientWidth * 251) / 675;
+    item.style.height = height + "px";
+  });
+</script>
+
